@@ -31,6 +31,8 @@ Panduan ini menjadi acuan saat menambah atau mengubah kode di ProjectForecast. J
 - Gunakan TanStack Router dengan file-based routing di `apps/web/src/routes/`. Buat route baru per halaman/segmen URL, dan gunakan `Link`/API router untuk navigasi internal.
 - Gunakan props bertipe dan nama props yang menjelaskan perilakunya. Hindari boolean props beruntun jika membuat komponen sulit dipahami.
 - Utamakan elemen HTML semantik dan kontrol yang dapat diakses keyboard. Form input harus memiliki label yang terhubung.
+- Gunakan utility class Tailwind untuk styling komponen; simpan aturan global dan token dasar di `src/style.css`.
+- Simpan komponen shadcn/ui yang dihasilkan CLI di `src/components/ui/`. Ubah source lokal tersebut sesuai kebutuhan; jangan mengedit salinan package di `node_modules`.
 
 ### Pengelompokan kode
 

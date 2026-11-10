@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { loadEnv } from 'vite';
 import { defineConfig } from 'vitest/config';
+import tailwindcss from '@tailwindcss/vite';
 import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
 
@@ -33,6 +34,7 @@ export default defineConfig(({ mode }) => {
         target: 'react',
         autoCodeSplitting: true,
       }),
+      tailwindcss(),
       react(),
     ],
     server: {
@@ -41,6 +43,11 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
       proxy: {
         '/api': `http://${apiHost}:${apiPort}`,
+      },
+    },
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
     test: {
