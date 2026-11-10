@@ -1,13 +1,18 @@
 {
   "name": "project-forecast",
   "private": true,
+  "packageManager": "bun@1.4.4",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "dev:web": "bun --cwd apps/web run dev",
-    "dev:server": "cd apps/server && uv run uvicorn app.main:app --reload",
-    "dev": "bun run --parallel dev:web dev:server"
+    "dev": "turbo run dev --parallel",
+    "dev:web": "turbo run dev --filter=@projectforecast/web",
+    "dev:server": "turbo run dev --filter=@projectforecast/server",
+    "build": "turbo run build"
+  },
+  "devDependencies": {
+    "turbo": "^2.11.10"
   }
 }

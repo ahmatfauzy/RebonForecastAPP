@@ -1,7 +1,12 @@
+import { createFileRoute } from '@tanstack/react-router';
 import type { HealthResponse } from '@projectforecast/contracts';
 import { useEffect, useState } from 'react';
 
-export default function App() {
+export const Route = createFileRoute('/')({
+  component: HomePage,
+});
+
+function HomePage() {
   const [health, setHealth] = useState<HealthResponse | null>(null);
 
   useEffect(() => {
