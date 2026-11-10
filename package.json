@@ -1,0 +1,13 @@
+{
+  "name": "project-forecast",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "bun --cwd apps/web run dev",
+    "dev:server": "cd apps/server && uv run uvicorn app.main:app --reload",
+    "dev": "bun run --parallel dev:web dev:server"
+  }
+}
