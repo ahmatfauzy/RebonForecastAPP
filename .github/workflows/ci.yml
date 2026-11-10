@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.4
+
+      - uses: astral-sh/setup-uv@v10
+        with:
+          version: 0.13.7
+          enable-cache: true
+          cache-dependency-glob: apps/server/uv.lock
+
+      - name: Install Bun workspaces
+        run: bun install --frozen-lockfile
+
+      - name: Sync Python environment
+        run: uv sync --project apps/server --locked
+
+      - name: Prepare local environment file
+        run: cp .env.example .env
+
+      - name: Check generated API contract
+        run: bun run api:check
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Build
+        run: bun run build
+
+      - name: Test frontend and backend
+        run: bun run test

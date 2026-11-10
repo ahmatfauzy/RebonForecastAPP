@@ -7,10 +7,16 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --parallel",
-    "dev:web": "turbo run dev --filter=@projectforecast/web",
-    "dev:server": "turbo run dev --filter=@projectforecast/server",
-    "build": "turbo run build"
+    "dev": "turbo run dev --ui=tui",
+    "web": "turbo run dev --filter=@projectforecast/web",
+    "server": "turbo run dev --filter=@projectforecast/server",
+    "dev:web": "bun run web",
+    "dev:server": "bun run server",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "api:generate": "bun run --cwd packages/contracts generate",
+    "api:check": "bun run --cwd packages/contracts check",
+    "lint": "turbo run lint"
   },
   "devDependencies": {
     "turbo": "^2.11.10"

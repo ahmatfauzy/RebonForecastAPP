@@ -2,7 +2,9 @@
   "name": "@projectforecast/server",
   "private": true,
   "scripts": {
-    "dev": "uv run uvicorn app.main:app --reload",
-    "build": "uv run python -m compileall -q app"
+    "dev": "uv run python -m app.run",
+    "build": "uv run python -m compileall -q app",
+    "test": "uv run pytest",
+    "lint": "uv run ruff check app tests scripts"
   }
 }

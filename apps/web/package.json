@@ -5,20 +5,28 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc -b",
+    "test": "vitest run",
     "preview": "vite preview"
   },
   "dependencies": {
     "@projectforecast/contracts": "workspace:*",
     "@tanstack/react-router": "^1.170.46",
+    "openapi-fetch": "^0.17.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@tanstack/router-plugin": "^1.169.0",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.9",
+    "@types/node": "^26.6.6",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^31.0.0",
     "typescript": "^5.7.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vitest": "^5.1.0"
   }
 }

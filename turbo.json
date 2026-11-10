@@ -1,9 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "build/**"]
+    },
+    "@projectforecast/contracts#build": {
+      "dependsOn": ["^build", "@projectforecast/server#build"],
+      "outputs": ["src/openapi.json", "src/generated/**"]
     },
     "@projectforecast/server#build": {
       "outputs": []
@@ -11,6 +16,14 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "outputs": []
     }
   }
 }

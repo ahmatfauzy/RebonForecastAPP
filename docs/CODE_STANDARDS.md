@@ -63,6 +63,7 @@ Panduan ini menjadi acuan saat menambah atau mengubah kode di ProjectForecast. J
 - Definisikan tipe bersama frontend di paket yang relevan di `packages/`; ekspor melalui entry point publik paket.
 - Tipe TypeScript tidak memvalidasi data runtime. Tetap validasi response yang tidak tepercaya saat diterima aplikasi.
 - Backend Python dan frontend TypeScript tidak berbagi tipe secara otomatis. Untuk kontrak lintas bahasa, jadikan OpenAPI dari FastAPI sebagai sumber API dan hasilkan atau validasi tipe klien dari spesifikasi tersebut ketika kebutuhan muncul.
+- Jangan mengedit `packages/contracts/src/openapi.json` atau `src/generated/api.d.ts` secara manual. Ubah model/route FastAPI, lalu jalankan `bun run api:generate`; CI memeriksa bahwa hasilnya sudah diperbarui.
 - Jangan mempertahankan definisi kontrak ganda secara manual tanpa mekanisme sinkronisasi atau pemeriksaan.
 - Perubahan kontrak harus memperbarui endpoint, skema, tipe/klien, dan dokumentasi yang terpengaruh dalam satu perubahan yang dapat ditinjau.
 

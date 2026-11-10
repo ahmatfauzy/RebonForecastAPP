@@ -16,3 +16,9 @@ p { color: #647087; line-height: 1.65; }
 .status { display: inline-flex; align-items: center; gap: 9px; margin-top: 22px; padding: 10px 14px; border-radius: 999px; background: #f2f4f8; color: #596579; font-size: 14px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: #a5adbb; }
 .dot.online { background: #24a36a; }
+.failure { margin-top: 22px; padding: 16px; border: 1px solid #f3c7c7; border-radius: 12px; background: #fff7f7; color: #9b2c2c; }
+.failure p { margin: 0 0 12px; color: inherit; }
+button { border: 0; border-radius: 8px; padding: 10px 14px; background: #5269d8; color: white; font: inherit; font-weight: 650; cursor: pointer; }
+button:hover { background: #4055bd; }
+.actions { display: flex; align-items: center; gap: 16px; margin-top: 20px; }
+a { color: #4055bd; }

@@ -3,7 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "generate": "uv run --project ../../apps/server python ../../apps/server/scripts/export_openapi.py && openapi-typescript src/openapi.json -o src/generated/api.d.ts",
+    "check": "uv run --project ../../apps/server python ../../apps/server/scripts/export_openapi.py --check && openapi-typescript src/openapi.json -o src/generated/api.d.ts --check",
+    "build": "bun run generate"
+  },
   "exports": {
     ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^7.13.0"
   }
 }
